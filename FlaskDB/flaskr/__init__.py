@@ -58,7 +58,6 @@ def numeros_por_fecha(fecha):
 
 @app.route("/numero_y_entero/<string:numero>/<string:k>")
 def numero_y_entero(numero, k):
-    #num = request.args.get('k', None)
     contador = 0
     result = list()
     for tupla in mongodb.escuchas.find({"numero": numero}, {"_id": 0, "$id": 0, "ciudad": 0, "fecha": 0, "numero": 0}).sort(
