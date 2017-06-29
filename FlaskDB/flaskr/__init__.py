@@ -8,6 +8,7 @@ from bson import json_util
 from pymongo import MongoClient
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
+import pymongo
 
 
 def create_app():
@@ -48,12 +49,32 @@ def home():
                   x["query"]) for x in json_file]
         return render_template('file.html', results=pairs)
 
-@app.route("/api/<string:ciudad>")
-def otro(ciudad):
-    output = []
-    for s in mongodb.escuchas.find({"ciudad": ciudad}, {"_id": 0, "$id": 0}):
-        output.append(s)
-    return json.dumps(output)
+@app.route("/numeros/<string:fecha>")
+def numeros_por_fecha(fecha):
+    result = list()
+    for tupla in mongodb.escuchas.find({"fecha": fecha}, {"_id": 0, "$id": 0, "fecha": 0, "ciudad": 0, "contenido": 0}):
+        result.append(tupla)
+    return json.dumps(result)
+
+@app.route("/numero_entero/<string:numero>",methods=['get'])
+def numero_y_entero(numero):
+    num = request.args.get('k', None)
+    contador = 0
+    result = list()
+    for tupla in mongodb.escuchas.find({"numero": numero}, {"_id": 0, "$id": 0, "fecha": 0, "ciudad": 0, "numero": 0}).sort(
+            "fecha", pymongo.ASCENDING):
+        result.append(tupla)
+        if contador == num:
+            break
+        contador += 1
+    return json.dumps(result)
+
+@app.route("/text_s/<string:palabra>")
+def palabra(palabra):
+    result = list()
+    for tupla in mongodb.escuchas.find({"$text": {"$search": '\"{}\"'.format(palabra)}}, {"_id": 0, "$id": 0}):
+        result.append(tupla)
+    return json.dumps(result)
 
 
 @app.route("/mongo")
