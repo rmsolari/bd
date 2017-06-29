@@ -52,7 +52,7 @@ def home():
 @app.route("/numeros/<string:fecha>")
 def numeros_por_fecha(fecha):
     result = list()
-    for tupla in mongodb.escuchas.find({"fecha": fecha}, {"_id": 0, "$id": 0, "fecha": 0, "ciudad": 0, "contenido": 0}):
+    for tupla in mongodb.escuchas.find({"fecha": fecha}, {"_id": 0, "$id": 0, "ciudad": 0, "contenido": 0, "fecha": 1}):
         result.append(tupla)
     return json.dumps(result)
 
