@@ -70,7 +70,7 @@ def numero_y_entero(numero):
     return json.dumps(result)
 
 @app.route("/text_s/<string:palabra>")
-def palabra(palabra):
+def aparece_palabra(palabra):
     result = list()
     for tupla in mongodb.escuchas.find({"$text": {"$search": '\"{}\"'.format(palabra)}}, {"_id": 0, "$id": 0}):
         result.append(tupla)
