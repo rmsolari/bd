@@ -10,7 +10,7 @@
   "database": "mongo",
   "description":
   "Vestibulum vulputate metus at nisl lacinia blandit. Quisque fermentum sagittis mi",
-  "query": "myCollection.find( {\"attribute\": \"value\"} )"
+  "query": "escuchas.find( {\"attribute\": \"value\"} )"
   },
   {
     "name": "Sebastián",
@@ -22,13 +22,13 @@
     "name": "Quiero todo de mongo 😄",
     "database": "mongo",
     "description": "...",
-    "query": "myCollection.find()"
+    "query": "escuchas.find()"
   },
   {
     "name": "Insertar a mongo",
     "database": "mongo",
     "description":
       "Vestibulum vulputate metus at nisl lacinia blandit. Quisque fermentum sagittis mi",
-    "query": "myCollection.insert( { \"attribute\": \"value\" } )"
+    "query": "escuchas.insert( { \"attribute\": \"value\" } )"
   }
 ]
