@@ -72,8 +72,12 @@ def numero_y_entero(numero, k):
 @app.route("/text_s/<string:palabra>")
 def aparece_palabra(palabra):
     result = list()
+    contador=0
     for tupla in mongodb.escuchas.find({"$text": {"$search": '\"{}\"'.format(palabra)}}, {"_id": 0, "$id": 0}):
+        contador+=1
         result.append(tupla)
+        if contador == 10:
+            break
     return json.dumps(result)
 
 
