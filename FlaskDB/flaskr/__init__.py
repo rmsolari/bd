@@ -35,7 +35,7 @@ postgresdb = psycopg2.connect(
 '''
 
 #Cambiar por Path Absoluto en el servidor
-QUERIES_FILENAME = 'queries'
+QUERIES_FILENAME = '/var/www/bd/FlaskDB/flaskr/queries'
 
 
 @app.route("/")
