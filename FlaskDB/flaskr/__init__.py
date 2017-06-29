@@ -49,14 +49,14 @@ def home():
                   x["query"]) for x in json_file]
         return render_template('file.html', results=pairs)
 
-@app.route("/numeros/<string:fecha>")
+@app.route("/numeros_por_fecha/<string:fecha>")
 def numeros_por_fecha(fecha):
     result = list()
     for tupla in mongodb.escuchas.find({"fecha": fecha}, {"_id": 0, "$id": 0, "ciudad": 0, "contenido": 0, "fecha": 0}):
         result.append(tupla)
     return json.dumps(result)
 
-@app.route("/numero_entero/<string:numero>/<string:k>")
+@app.route("/numero_y_entero/<string:numero>/<string:k>")
 def numero_y_entero(numero, k):
     #num = request.args.get('k', None)
     contador = 0
@@ -69,8 +69,8 @@ def numero_y_entero(numero, k):
         contador += 1
     return json.dumps(result)
 
-@app.route("/text_s/<string:palabra>")
-def aparece_palabra(palabra):
+@app.route("/palabra_clave/<string:palabra>")
+def palabra_clave(palabra):
     result = list()
     contador=0
     for tupla in mongodb.escuchas.find({"$text": {"$search": palabra}}, {"_id": 0, "$id": 0}):
