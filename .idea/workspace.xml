@@ -20,8 +20,8 @@
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FlaskDB/flaskr/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="54" column="117" lean-forward="false" selection-start-line="54" selection-start-column="117" selection-end-line="54" selection-end-column="117" />
+            <state relative-caret-position="390">
+              <caret line="61" column="16" lean-forward="true" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
               <folding>
                 <element signature="e#45#54#0" expanded="true" />
               </folding>
@@ -402,8 +402,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FlaskDB/flaskr/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="54" column="117" lean-forward="false" selection-start-line="54" selection-start-column="117" selection-end-line="54" selection-end-column="117" />
+        <state relative-caret-position="390">
+          <caret line="61" column="16" lean-forward="true" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
           <folding>
             <element signature="e#45#54#0" expanded="true" />
           </folding>

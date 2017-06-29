@@ -52,7 +52,7 @@ def home():
 @app.route("/numeros/<string:fecha>")
 def numeros_por_fecha(fecha):
     result = list()
-    for tupla in mongodb.escuchas.find({"fecha": fecha}, {"_id": 0, "$id": 0, "ciudad": 0, "contenido": 0, "fecha": 1}):
+    for tupla in mongodb.escuchas.find({"fecha": fecha}, {"_id": 0, "$id": 0, "ciudad": 0, "contenido": 0, "fecha": 0}):
         result.append(tupla)
     return json.dumps(result)
 
@@ -61,7 +61,7 @@ def numero_y_entero(numero, k):
     #num = request.args.get('k', None)
     contador = 0
     result = list()
-    for tupla in mongodb.escuchas.find({"numero": numero}, {"_id": 0, "$id": 0, "fecha": 0, "ciudad": 0, "numero": 0}).sort(
+    for tupla in mongodb.escuchas.find({"numero": numero}, {"_id": 0, "$id": 0, "ciudad": 0, "fecha": 0, "numero": 0}).sort(
             "fecha", pymongo.ASCENDING):
         result.append(tupla)
         if contador == k:
