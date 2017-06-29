@@ -17,7 +17,7 @@ def create_app():
 app = create_app()
 
 # REPLACE WITH YOUR DATABASE NAME
-MONGODATABASE = "myDatabase"
+MONGODATABASE = "grupo26"
 MONGOSERVER = "localhost"
 MONGOPORT = 27017
 client = MongoClient(MONGOSERVER, MONGOPORT)
@@ -47,6 +47,13 @@ def home():
                   x["description"],
                   x["query"]) for x in json_file]
         return render_template('file.html', results=pairs)
+
+@app.route("/api/<string:ciudad>")
+def otro(ciudad):
+    output = []
+    for s in mongodb.escuchas.find({"ciudad": ciudad}, {"_id": 0, "$id": 0}):
+        output.append(s)
+    return json.dumps(output)
 
 
 @app.route("/mongo")
