@@ -76,7 +76,7 @@ def palabra_clave(palabra):
         for i in palabra:
             total+="\"i\" "
     else:
-        total=palabra
+        total=palabra[0]
     result = list()
     contador=0
     for tupla in mongodb.escuchas.find({"$text": {"$search": total}}, {"_id": 0, "$id": 0}):
