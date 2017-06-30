@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manejo de API Grupo 26</title>
+</head>
+<body>
+Para ocupar la API se debe ingresar al servidor: <a href="query17-10.ing.puc.cl">query17-10.ing.puc.cl</a>, User: administrator,
+Password: Sp4*G-Txp. <br><br>
+
+Dentro del server debe ejecutarse el comando "sudo mongod", nuestro servidor cuenta con el arreglo de mongoDB "escuchas",
+donde importamos el archivo con los mensajes recibidos. <br><br>
+
+Las funcionalidades de la API están implementadas en la dirección del server <b>/var/www/bd/FlasDB/flaskr/__init__.py</b>:<br><br>
+<i>'numero_por_fecha(fecha)': </i> Dada una fecha, retorna todos los números para los que se tienen mensajes en esa fecha.<br>
+Ruta: query17-10.ing.puc.cl/numeros_por_fecha/<'string:fecha'><br><br>
+<i>'numero_y_entero(numero, k)': </i> Dado un número y un entero <i>k</i>>, los <i>k</i>> uúltimos mensajes de ese nuúmero.<br>
+Ruta: query17-10.ing.puc.cl/numero_y_entero/<'string:numero'>/<'string:k'><br><br>
+<i>'palabra_clave(palabra)': </i> Dada una palabra clave, todos los JSON en los que aparece esa palabra clave en el contenido.<br>
+Ruta: query17-10.ing.puc.cl/palabra_clave/<'string:palabra'><br><br>
+</body>
+</html>
