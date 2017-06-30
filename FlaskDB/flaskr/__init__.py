@@ -74,7 +74,7 @@ def palabra_clave(palabra):
     total=""
     if len(palabra) > 1:
         for i in palabra:
-            total+="\""+i"\" "
+            total+="\""+i+"\" "
     else:
         total=palabra[0]
     result = list()
