@@ -70,9 +70,13 @@ def numero_y_entero(numero, k):
 
 @app.route("/palabra_clave/<string:palabra>")
 def palabra_clave(palabra):
+    palabra=palabra.split("_")
+    total=""
+    for i in palabra:
+        total+="\"i\""
     result = list()
     contador=0
-    for tupla in mongodb.escuchas.find({"$text": {"$search": "\"sucede\" \"que\""}}, {"_id": 0, "$id": 0}):
+    for tupla in mongodb.escuchas.find({"$text": {"$search": total}}, {"_id": 0, "$id": 0}):
         contador+=1
         result.append(tupla)
         if contador == 10:
