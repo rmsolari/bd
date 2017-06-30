@@ -72,8 +72,9 @@ def numero_y_entero(numero, k):
 def palabra_clave(palabra):
     palabra=palabra.split("_")
     total=""
-    for i in palabra:
-        total+="\"i\" "
+    if len(palabra) > 1:
+        for i in palabra:
+            total+="\"i\" "
     result = list()
     contador=0
     for tupla in mongodb.escuchas.find({"$text": {"$search": total}}, {"_id": 0, "$id": 0}):
